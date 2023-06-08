@@ -22,7 +22,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="https://i.ibb.co/zfzbRbK/L7-T9-AWEcs-Bk.jpg" style="width:100%" alt="Avatar">
+         "https://i.ibb.co/zfzbRbK/L7-T9-AWEcs-Bk.jpg" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
             <h2>Alex Gribanov</h2>
           </div>
