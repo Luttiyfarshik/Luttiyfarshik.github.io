@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме студента-автоматизатора</title>
+    <style>
+        body {
+            font-family: Tahoma, serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            background-color: white;
+            width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .name, .surname, .age, .smoker {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .name, .surname, .age, .smoker {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .name, .surname {
+            color: purple; /* Фиолетовый цвет */
+        }
+
+        img {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 250px;
+            height: 250px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f44336;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #8A2BE2;
+        }
+
+        .change-field-color {
+            background-color: #FF5733; /* Рандомные цвета */
+            color: white;
+        }
+
+        .status {
+            color: #f44336; /* Красный цвет */
+            font-weight: bold;
+        }
+
+        @keyframes backgroundChange {
+            0% { background-color: #f0f0f0; }
+            50% { background-color: #FFFF00; }
+            100% { background-color: #FF69B4; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Резюме студента-автоматизатора</h1>
+    <div class="container">
+        <div class="photo-container">
+            <img src="https://sun9-14.userapi.com/impg/IUO66PrvSodzeBtCSn6MRmvySt7tEu5LY7IXjQ/3UWbKHzCxhM.jpg?size=1080x1440&quality=95&sign=3706498169444894432d93a91acde05c&type=album" alt="Фото Платона Лушникова" onmouseover="changeBackgroundColor()" onmouseout="resetBackgroundColor()">
+        </div>
+        <p class="name" id="name">Имя: Александр</p>
+        <p class="surname" id="surname">Фамилия: Грибанов</p>
+        <button class="change-age" onclick="enterAge()">Установить возраст</button>
+        <p class="age">Возраст: не указан</p>
+        <button class="change-surname" onclick="changeSurname()">Изменить фамилию</button>
+        <p class="status">В наличии шкода октавия</p>
+        <button class="change-field-color" onclick="changeFieldColor()">Изменить цвет поля</button>
+    </div>
+
+    <script>
+        // Функция для изменения фамилии
+        function changeSurname() {
+            let newSurname = prompt("Пожалуйста, введите вашу новую фамилию:", "");
+            if (newSurname !== null && newSurname !== "") {
+                document.getElementById('surname').textContent = "Фамилия: " + newSurname;
+            }
+        }
+
+        // Функция для изменения цвета заголовка
+        function changeFieldColor() {
+            const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33A8'];
+            document.querySelector('.container').style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Функция для изменения цвета фона при наведении на фото
+        function changeBackgroundColor() {
+            document.body.style.animation = "backgroundChange 3s infinite";
+        }
+
+        // Функция для сброса цвета фона при уходе курсора с фото
+        function resetBackgroundColor() {
+            document.body.style.animation = "";
+            document.body.style.backgroundColor = "#f0f0f0";
+        }
+
+        // Функция для ввода возраста
+        function enterAge() {
+            let age;
+            do {
+                age = prompt("Пожалуйста, введите ваш возраст:", "");
+                if (age === null) {
+                    continue; // Если нажата "Отмена", продолжить цикл
+                }
+            } while (!confirm(`Вы ввели возраст: ${age}. Это верно?`));
+            document.querySelector('.age').textContent = "Возраст: " + age;
+        }
+    </script>
+</body>
+</html>
